@@ -1,16 +1,13 @@
 import React from "react"
 import "./employeeCard.css"
 
-function employeeCard() {
-  const name = "Daniel Macias"
-  const email = "email@email.com"
-  const phoneNum = "(619) 730-5398"
+function employeeCard({ firstName, lastName, imgSrc, phoneNum, email }) {
 
   return (
     <div className="card" >
-      <img src="" className="card-img-top" alt="" />
+      <img src={imgSrc} className="card-img-top profileImg" alt="Profile" />
       <div className="card-body">
-        <h2 className="card-title">{name}</h2>
+        <h2 className="card-title">{`${firstName} ${lastName}`}</h2>
         <p >{email}</p>
         <p >{phoneNum}</p>
       </div>
