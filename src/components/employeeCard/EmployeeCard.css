@@ -1,3 +1,25 @@
+.employeeCard {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
 .profileImg {
+  margin: 0 auto;
+  text-align: center;
   width: 100px;
+}
+.profileImgContainer {
+  margin: 0 auto;
+}
+.name {
+  text-align: center;
+}
+.email {
+  text-align: center;
+}
+
+.phoneNum {
+  text-align: center;
 }
