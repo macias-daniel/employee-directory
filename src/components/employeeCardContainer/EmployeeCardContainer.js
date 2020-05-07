@@ -33,7 +33,7 @@ class EmployeeCardContainer extends React.Component {
     })
 
 
-    return (employeeCards)
+    return (<div className="employeeCardContainer">{employeeCards}</div>)
   }
 }
 

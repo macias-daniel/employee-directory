@@ -6,11 +6,9 @@ function employeeCard({ firstName, lastName, imgSrc, phoneNum, email }) {
   return (
     <div className="card" >
       <img src={imgSrc} className="card-img-top profileImg" alt="Profile" />
-      <div className="card-body">
-        <h2 className="card-title">{`${firstName} ${lastName}`}</h2>
-        <p >{email}</p>
-        <p >{phoneNum}</p>
-      </div>
+      <h2 className="card-title">{`${firstName} ${lastName}`}</h2>
+      <p >{email}</p>
+      <p >{phoneNum}</p>
     </div>)
 }
 
