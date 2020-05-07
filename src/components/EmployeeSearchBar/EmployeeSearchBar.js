@@ -1,5 +1,5 @@
 import React from "react"
-import "./employeeSearch.css"
+import "./employeeSearchBar.css"
 
 function employeeSearch() {
   return (
