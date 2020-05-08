@@ -5,25 +5,15 @@ import API from "../../utils/API"
 import "./employeeCardContainer.css"
 
 
-
-//On mount grab all employees from our db
-// componentDidMount = () => {
-
-// }
-
-
-
-
-
-
 function EmployeeCardContainer() {
 
   const [employees, setEmployees] = useState([])
   const [employeeCard, setEmployeeCard] = useState([])
   const [search, setSearch] = useState("")
 
-  //ON first render grab all employees from db
+
   useEffect(() => {
+    //ON first render grab all employees from db
     API.getEmployees().then(employee => {
       setEmployees(employee.data.results)
     }).catch(err => {
@@ -31,10 +21,17 @@ function EmployeeCardContainer() {
     })
   }, [])
 
-  //On first render create a card element for each employee and check if that employee is included in the search
+
   useEffect(() => {
     let idNum = 0
-    const searchRelatesEmployee = employees.filter((employee) => { return ((employee.name.first).toLowerCase().includes(search) || (employee.name.last).toLowerCase().includes(search)) })
+    //Filter out employees whos name is not included by search
+    const searchRelatesEmployee = employees.filter((employee) => {
+      return (
+        (employee.name.first).toLowerCase().includes(search) ||
+        (employee.name.last).toLowerCase().includes(search))
+    })
+
+    //For each filtered employee create a card element and setEmployeeCard so dom rerenders
     setEmployeeCard(searchRelatesEmployee.map(employee => {
       idNum++
       return (<EmployeeCard
