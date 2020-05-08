@@ -26,7 +26,7 @@ function SortBar(props) {
 function SortBarLabelsCol(props) {
   return (
     <p className="col-3 sortLabels">
-      <a href="/#" onClick={props.handleOnClick}>
+      <a onClick={props.handleOnClick}>
         {props.children}
         <span className="sortIcon">
           <svg className="bi bi-chevron-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
