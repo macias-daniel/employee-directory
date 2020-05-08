@@ -1,10 +1,12 @@
 import axios from "axios"
-const BASEURL = "https://randomuser.me/api/"
-const EMPLOYEE_AMOUNT = "?results=10"
+
+
+const BASE_URL = "https://rickandmortyapi.com/api/character/?species=human&page="
+
 
 export default {
-  getEmployees: function () {
-    //AXIOS CALLS ARE PROMISES
-    return axios.get(BASEURL + EMPLOYEE_AMOUNT)
+  getEmployees: function (pageNum) {
+    //AXIOS CALLS ARE PROMISE
+    return axios.get(BASE_URL + pageNum)
   }
 }

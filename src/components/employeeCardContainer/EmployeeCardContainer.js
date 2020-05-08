@@ -14,41 +14,33 @@ function EmployeeCardContainer() {
 
   useEffect(() => {
     //ON first render grab all employees from db
-    API.getEmployees().then(employee => {
-      setEmployees(employee.data.results)
-    }).catch(err => {
-      console.log(err)
+    let paginationArray
+    API.getEmployees(1).then(firstEmployeeSet => {
+      paginationArray = firstEmployeeSet.data.results
+      setEmployees(paginationArray)
     })
   }, [])
 
-
   useEffect(() => {
-    let idNum = 0
     //Filter out employees whos name is not included by search
     const searchRelatesEmployee = employees.filter((employee) => {
       return (
-        (employee.name.first).toLowerCase().includes(search) ||
-        (employee.name.last).toLowerCase().includes(search))
+        (employee.name).toLowerCase().includes(search))
     })
 
     //For each filtered employee create a card element and setEmployeeCard so dom rerenders
     setEmployeeCard(searchRelatesEmployee.map(employee => {
-      idNum++
       return (<EmployeeCard
-        key={idNum}
-        imgSrc={employee.picture.medium}
-        firstName={employee.name.first}
-        lastName={employee.name.last}
-        phoneNum={employee.cell}
-        email={employee.email}
+        key={employee.id}
+        imgSrc={employee.image}
+        name={employee.name}
+        species={employee.species}
+        status={employee.status}
       />)
     }))
 
 
   }, [search, employees])
-
-  //Create an array of employee cards
-
 
 
   return (<div className="employeeCardContainer">

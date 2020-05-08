@@ -2,7 +2,7 @@ import React from "react"
 import "./employeeCard.css"
 
 
-function employeeCard({ firstName, lastName, imgSrc, phoneNum, email }) {
+function employeeCard({ name, imgSrc, species, status }) {
 
   return (
     <div className="container">
@@ -11,13 +11,13 @@ function employeeCard({ firstName, lastName, imgSrc, phoneNum, email }) {
           <img src={imgSrc} className="card-img-top profileImg" alt="Profile" />
         </div>
         <div className="col-md-3 name">
-          <h4 >{`${firstName} ${lastName}`}</h4>
+          <h4 >{name}</h4>
         </div>
         <div className="col-md-3 email">
-          <p >{email}</p>
+          <p >{species}</p>
         </div>
         <div className="col-md-3 phoneNum">
-          <p >{phoneNum}</p>
+          <p >{status}</p>
         </div>
       </div>
     </div>
