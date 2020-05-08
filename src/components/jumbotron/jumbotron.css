@@ -2,6 +2,15 @@
   background-image: url("../../assets/spaceBackground.jpg");
 }
 
+.textContainer {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .mainText {
+  color: white;
+}
+
+.lead {
   color: white;
 }
