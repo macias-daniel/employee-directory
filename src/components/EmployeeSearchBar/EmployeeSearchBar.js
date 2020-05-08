@@ -1,12 +1,18 @@
 import React from "react"
 import "./employeeSearchBar.css"
 
-function employeeSearch() {
+function employeeSearch(props) {
   return (
     <form>
       <div className="form-group">
         <label >Employee Search</label>
-        <input type="text" className="form-control" name="employeeSearch" aria-describedby="emailHelp" />
+        <input
+          onChange={props.handleInputChange}
+          type="text"
+          className="form-control"
+          name="employeeSearch"
+          aria-describedby="emailHelp" />
+
       </div>
     </form>
   )
