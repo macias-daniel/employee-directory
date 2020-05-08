@@ -5,21 +5,50 @@
   border-bottom: 1px solid black;
 }
 
+.row {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  margin-bottom: 20px;
+  padding: 5px;
+}
 .profileImg {
-  margin: 0 auto;
-  text-align: center;
-  width: 100px;
+  width: 70px;
 }
 .profileImgContainer {
-  margin: 0 auto;
-}
-.name {
-  text-align: center;
-}
-.email {
   text-align: center;
 }
 
-.phoneNum {
+.name {
+  padding-top: 1.3rem;
   text-align: center;
+  overflow-wrap: break-word;
+  border-left: 1px solid black;
+}
+
+.email {
+  padding-top: 1.5rem;
+  text-align: center;
+  overflow-wrap: break-word;
+  border-left: 1px solid black;
+}
+
+.phoneNum {
+  padding-top: 1.5rem;
+  text-align: center;
+  overflow-wrap: break-word;
+  border-left: 1px solid black;
+}
+
+@media screen and (max-width: 766px) {
+  .name {
+    border-left: none;
+  }
+
+  .email {
+    border-left: none;
+  }
+
+  .phoneNum {
+    border-left: none;
+  }
 }
