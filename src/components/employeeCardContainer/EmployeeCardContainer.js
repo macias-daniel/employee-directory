@@ -1,5 +1,6 @@
 import React from "react";
 import EmployeeCard from "../employeeCard/EmployeeCard"
+import EmployeeSearchBar from "../EmployeeSearchBar/EmployeeSearchBar"
 import API from "../../utils/API"
 import "./employeeCardContainer.css"
 
@@ -33,7 +34,10 @@ class EmployeeCardContainer extends React.Component {
     })
 
 
-    return (<div className="employeeCardContainer">{employeeCards}</div>)
+    return (<div className="employeeCardContainer">
+      <EmployeeSearchBar />
+      {employeeCards}
+    </div>)
   }
 }
 

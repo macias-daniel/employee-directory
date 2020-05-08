@@ -11,9 +11,11 @@
   margin-bottom: 20px;
   padding: 5px;
 }
+
 .profileImg {
   width: 70px;
 }
+
 .profileImgContainer {
   text-align: center;
 }
@@ -42,13 +44,16 @@
 @media screen and (max-width: 766px) {
   .name {
     border-left: none;
+    padding: 0;
   }
 
   .email {
     border-left: none;
+    padding: 0;
   }
 
   .phoneNum {
     border-left: none;
+    padding: 0;
   }
 }
