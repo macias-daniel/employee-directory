@@ -13,21 +13,21 @@ function EmployeeCardContainer() {
   const [search, setSearch] = useState("")
   const [sortOrder, setSortOrder] = useState("asc")
 
-
   useEffect(() => {
     //ON first render grab all employees from db
-    let paginationArray
-    API.getEmployees(1).then(firstEmployeeSet => {
-      paginationArray = firstEmployeeSet.data.results
-      setEmployees(paginationArray)
+
+    API.getEmployees(1).then(data => {
+      setEmployees(data.data.results)
     })
   }, [])
 
+  //Whenever employees are updated or search is updated
   useEffect(() => {
     //Filter out employees whos name is not included by search
     const searchRelatesEmployee = employees.filter((employee) => {
       return (
-        (employee.name).toLowerCase().includes(search))
+        (employee.name).toLowerCase().includes(search)
+      )
     })
 
     // For each filtered employee create a card element and setEmployeeCard so dom rerenders
@@ -42,8 +42,7 @@ function EmployeeCardContainer() {
     }))
   }, [employees, search])
 
-
-
+  //Component to render
   return (
     <div className="employeeCardContainer">
       <EmployeeSearchBar
@@ -51,23 +50,26 @@ function EmployeeCardContainer() {
       />
       <EmployeeSortBar handleOnClick={(event) => {
         //Check what order the is sort is occuring and sort the opposiite way
-        if (sortOrder === "asc") {
-          setEmployees(employees.sort(compareValues("name", "asc")))
-          setSortOrder("desc")
-        } else {
-          setEmployees(employees.sort(compareValues("name", "desc")))
-          setSortOrder("asc")
-        }
+        setEmployees(sortEmployees())
       }} />
       {employeeCard}
     </div>
   )
+
+  //Sorts employees and sets the sortOrder to the opposite
+  function sortEmployees() {
+    if (sortOrder === "asc") {
+      setSortOrder("desc")
+      return employees.slice(0).sort(compareValues("name", "asc"))
+    } else {
+      setSortOrder("asc")
+      return employees.slice(0).sort(compareValues("name", "desc"))
+    }
+  }
+
 }
 
-
-export default EmployeeCardContainer;
-
-//Function to sort objects
+//Sorts employee objects
 function compareValues(key, order = 'asc') {
   return function innerSort(a, b) {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -90,5 +92,8 @@ function compareValues(key, order = 'asc') {
     );
   };
 }
+
+export default EmployeeCardContainer;
+
 
 
