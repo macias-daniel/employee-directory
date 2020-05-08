@@ -1,17 +1,20 @@
 .sortLabels {
   text-align: center;
   margin-bottom: 20px;
+  color: white;
 }
 
 .sortIcon {
   margin-left: 10px;
 }
 
-p,
-a {
+.sortButton {
   color: white;
+  background-color: transparent;
+  border: none;
 }
 
-a:hover {
+.sortButton:focus {
+  outline-color: #97ce4c;
   color: #97ce4c;
 }
