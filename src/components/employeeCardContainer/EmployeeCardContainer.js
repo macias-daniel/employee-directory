@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EmployeeCard from "../employeeCard/EmployeeCard"
-import EmployeeSearchBar from "../EmployeeSearchBar/EmployeeSearchBar"
+import EmployeeSearchBar from "../employeeSearchBar/EmployeeSearchBar"
 import EmployeeSortBar from "../employeeSortBar/EmployeeSortBar"
 import API from "../../utils/API"
 import "./employeeCardContainer.css"
@@ -23,13 +23,13 @@ function EmployeeCardContainer() {
     })
   }, [])
 
-
   useEffect(() => {
     //Filter out employees whos name is not included by search
     const searchRelatesEmployee = employees.filter((employee) => {
       return (
         (employee.name).toLowerCase().includes(search))
     })
+
     // For each filtered employee create a card element and setEmployeeCard so dom rerenders
     setEmployeeCard(searchRelatesEmployee.map(employee => {
       return (<EmployeeCard
@@ -44,22 +44,24 @@ function EmployeeCardContainer() {
 
 
 
-  return (<div className="employeeCardContainer">
-    <EmployeeSearchBar
-      handleInputChange={(event) => { setSearch((event.target.value).toLowerCase()) }}
-    />
-    <EmployeeSortBar handleOnClick={(event) => {
-      //Check what order the is sort is occuring and sort the opposiite way
-      if (sortOrder === "asc") {
-        setEmployees(employees.sort(compareValues("name", "asc")))
-        setSortOrder("desc")
-      } else {
-        setEmployees(employees.sort(compareValues("name", "desc")))
-        setSortOrder("asc")
-      }
-    }} />
-    {employeeCard}
-  </div>)
+  return (
+    <div className="employeeCardContainer">
+      <EmployeeSearchBar
+        handleInputChange={(event) => { setSearch((event.target.value).toLowerCase()) }}
+      />
+      <EmployeeSortBar handleOnClick={(event) => {
+        //Check what order the is sort is occuring and sort the opposiite way
+        if (sortOrder === "asc") {
+          setEmployees(employees.sort(compareValues("name", "asc")))
+          setSortOrder("desc")
+        } else {
+          setEmployees(employees.sort(compareValues("name", "desc")))
+          setSortOrder("asc")
+        }
+      }} />
+      {employeeCard}
+    </div>
+  )
 }
 
 

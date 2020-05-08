@@ -7,16 +7,16 @@ function SortBar(props) {
   return (<div className="container">
     <div className="row">
       <div className="col-3 sortLabels">
-        Image
+        <p> Image</p>
       </div>
       <SortBarLabelsCol handleOnClick={props.handleOnClick}>
         Name
       </SortBarLabelsCol>
       <div className="col-3 sortLabels">
-        Location
+        <p> Location</p>
       </div>
       <div className="col-3 sortLabels">
-        Status
+        <p> Status</p>
       </div>
     </div>
   </div>)

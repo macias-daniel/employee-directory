@@ -6,3 +6,12 @@
 .sortIcon {
   margin-left: 10px;
 }
+
+p,
+a {
+  color: white;
+}
+
+a:hover {
+  color: #97ce4c;
+}

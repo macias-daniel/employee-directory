@@ -1,13 +1,13 @@
 .employeeCard {
   margin-bottom: 20px;
   padding: 10px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid #c9d6df;
+  border-bottom: 1px solid #c9d6df;
 }
 
 .cardRow {
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
+  border-bottom: 1px solid #c9d6df;
+  border-top: 1px solid #c9d6df;
   margin-bottom: 20px;
   padding: 5px;
 }
@@ -21,27 +21,33 @@
 }
 
 .name {
+  color: white;
   padding-top: 1.3rem;
   text-align: center;
   overflow-wrap: break-word;
-  border-left: 1px solid black;
+  border-left: 1px solid #c9d6df;
 }
 
 .email {
+  color: white;
   padding-top: 1.5rem;
   text-align: center;
   overflow-wrap: break-word;
-  border-left: 1px solid black;
+  border-left: 1px solid #c9d6df;
 }
 
 .phoneNum {
+  color: white;
   padding-top: 1.5rem;
   text-align: center;
   overflow-wrap: break-word;
-  border-left: 1px solid black;
+  border-left: 1px solid #c9d6df;
 }
 
 @media screen and (max-width: 766px) {
+  .row {
+    padding-top: 20px;
+  }
   .name {
     border-left: none;
     padding: 0;
